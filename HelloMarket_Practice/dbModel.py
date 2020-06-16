@@ -14,7 +14,7 @@ class DBModel :
         conn = DBModel().DBConnect()
         curs = conn.cursor(pymysql.cursors.DictCursor)
         sqlstr = 'insert into HelloMarket(company, model, title, price, content) values(%s, %s, %s, %s, %s)'
-        curs.execute(sqlstr, ('test', 'test', param.title, param.price, param.content))
+        curs.execute(sqlstr, (param.company, param.model, param.title, param.price, param.content))
         conn.commit()
         conn.close()
         return 'InsertProduct_insertOK'
